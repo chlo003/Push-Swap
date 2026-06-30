@@ -6,7 +6,7 @@
 /*   By: chlminga <chlminga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/29 15:41:16 by chlminga          #+#    #+#             */
-/*   Updated: 2026/06/30 18:07:49 by chlminga         ###   ########.fr       */
+/*   Updated: 2026/06/30 19:18:12 by chlminga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,33 +50,36 @@ void	ft_lstadd_back(t_node **lst, t_node *new)
 
 
 
-t_node	swap_a(t_node **head)
+void	swap_a(t_node **head)
 {
-	t_node	*temp;
+	int		temp;
 	t_node	*current;
 
 	current = *head;
-	temp = current;
+	temp = current->data;
 	current->data = current->next->data;
-	printf("%d\n", temp->data);
-	current->next->data = temp->data;
-	// printf("%d", current->next->data);
+	current->next->data = temp;
 	printf("sa\n");
 }
 
-t_node	swap_b(t_node **head)
+void	swap_b(t_node **head)
 {
-	t_node	*temp;
+	int		temp;
 	t_node	*current;
 
 	current = *head;
-	temp = NULL;
-	temp = current;
-	current = current->next;
-	current->next = temp;
+	temp = current->data;
+	current->data = current->next->data;
+	current->next->data = temp;
 	printf("sb\n");
 }
 
+void	swap_both(t_node **stack_a, t_node **stack_b)
+{
+	swap_a(stack_a);
+	swap_b(stack_b);
+	printf("ss\n");
+}
 // t_node	push(t_node **, t_node **)
 // {
 
